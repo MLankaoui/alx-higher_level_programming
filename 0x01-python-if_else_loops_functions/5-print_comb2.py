@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 for number in range(0, 100):
     if number != 99:
-        end=", "
+        end = ", "
     else:
-        end="\n"
+        end = "\n"
     if number < 10:
         print("0{number}".format(number=number), end=end)
     else:

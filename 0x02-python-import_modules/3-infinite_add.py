@@ -14,8 +14,6 @@ if __name__ == "__main__":
     elif argc > 0:
         for number in sys.argv[1:]:
             result += int(sys.argv[i])
-            
             i += 1
 
         print(result)
-

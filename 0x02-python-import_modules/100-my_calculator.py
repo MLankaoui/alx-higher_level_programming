@@ -9,22 +9,26 @@ if __name__ == "__main__":
 
     operator = ""
 
+    a = int(sys.argv[1])
+
+    b = int(sys.argv[3])
+
     if argc < 1:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
 
     else:
         if sys.argv[2] == '+':
-            print("{} {} {} = {}".format(sys.argv[1],sys.argv[2], sys.argv[3], add(int(sys.argv[1]), int(sys.argv[3]))))
+            print("{} {} {} = {}".format(a, sys.argv[2], b, add(a, b)))
 
         elif sys.argv[2] == '-':
-            print("{} {} {} = {}".format(sys.argv[1],sys.argv[2], sys.argv[3], sub(int(sys.argv[1]), int(sys.argv[3]))))
+            print("{} {} {} = {}".format(a, sys.argv[2], b, sub(a, b)))
         
         elif sys.argv[2] == '/':
-            print("{} {} {} = {}".format(sys.argv[1],sys.argv[2], sys.argv[3], div(int(sys.argv[1]), int(sys.argv[3]))))
+            print("{} {} {} = {}".format(a, sys.argv[2], b, div(a, b)))
 
         elif sys.argv[2] == '*':
-            print("{} {} {} = {}".format(sys.argv[1],sys.argv[2], sys.argv[3], mul(int(sys.argv[1]), int(sys.argv[3]))))
+            print("{} {} {} = {}".format(a, sys.argv[2], b, mul(a, b)))
 
         else:
             print("Unknown operator. Available operators: +, -, * and /")

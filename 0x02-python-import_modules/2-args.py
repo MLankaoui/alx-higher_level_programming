@@ -17,5 +17,4 @@ if __name__ == "__main__":
             i += 1
 
     else:
-        print(":")
-        print("if at least one argument")
+        print("0 arguments.")

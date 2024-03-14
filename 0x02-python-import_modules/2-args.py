@@ -16,4 +16,3 @@ elif argc > 1:
 
 else:
     print(".")
-

@@ -54,13 +54,13 @@ class Rectangle:
         if self.__width == 0 and self.__height == 0:
             return 0
         return 2 * (self.__height + self.__width)
-    
+
     def __str__(self):
         Rectangle = []
 
         if self.__width == 0 and self.height == 0:
             return ""
-        
+
         else:
             for i in range(self.__height):
                 for j in range(self.__width):

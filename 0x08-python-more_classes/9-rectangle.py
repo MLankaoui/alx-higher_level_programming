@@ -145,6 +145,16 @@ class Rectangle:
             return rect_1
         elif rect_1.area() < rect_2.area():
             return rect_2
+
     @classmethod
     def square(cls, size=0):
+        """
+        a class methord that
+
+        Args:
+            size (int, optional): size of the square rectangle. Defaults to 0.
+
+        returns:
+            Rectangle: a square rectangle.
+        """
         return Rectangle(size, size)

@@ -99,6 +99,19 @@ class Rectangle:
         else:
             return 2 * (self.__height + self.__width)
 
+    @classmethod
+    def square(cls, size=0):
+        """Returns a new rectangle instance with width == height == size.
+
+        Args:
+            cls: used to access class attributes.
+            size (int, optional): size of rectangle (1 side). Defaults to 0.
+
+        Returns:
+            Square: the new rectangle with equal values of height and width .
+        """
+        return Rectangle(size, size)
+
     def __str__(self):
         """Prints the rectangle with the character # .
 
@@ -133,19 +146,6 @@ class Rectangle:
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
-    @classmethod
-    def square(cls, size=0):
-        """Returns a new rectangle instance with width == height == size.
-
-        Args:
-            cls: used to access class attributes.
-            size (int, optional): size of rectangle (1 side). Defaults to 0.
-
-        Returns:
-            Square: the new rectangle with equal values of height and width .
-        """
-        return Rectangle(size, size)
-
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
@@ -158,5 +158,3 @@ class Rectangle:
             return rect_1
         elif rect_1.area() < rect_2.area():
             return rect_2
-
-    

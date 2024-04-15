@@ -2,7 +2,9 @@
 
 
 """Base Geomety class for Geometries"""
-class BaseGeometry:
 
+
+class BaseGeometry:
+    """public method are not yet implemented"""
     def area(self):
         raise Exception("area() is not implemented")

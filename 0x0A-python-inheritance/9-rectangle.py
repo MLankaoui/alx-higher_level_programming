@@ -31,7 +31,6 @@ class Rectangle(BaseGeometry):
     """defining width / height"""
     def __str__(self):
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
-    
 
     """calculating the erea"""
     def area(self):  # Corrected method name

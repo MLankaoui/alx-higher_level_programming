@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """a script that defines a function that
-creates an Object from a “JSON file”"""
+creates an Object from a “JSON file"""
 import json
 
 

@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""a python scripts that defines a function that read content
-from a file and prints its content to stdout
-"""
+""" read from file """
 
 
 def read_file(filename=""):
-    """read a file with utf-8 encoding and prints its content to stdout"""
-    with open(filename, "r", encoding='utf-8') as file:
-        print(file.read(), end="")
-
+    """function that reads a text file
+    (UTF8) and prints it to stdout"""
+    with open(filename, encoding="utf-8") as f:
+        print(f.read(), end="")

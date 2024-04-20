@@ -66,12 +66,16 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        for i  in range(self.__height):
-            
+        for i in range(self.__y):
+            print()  # Print empty lines for vertical indentation
+        for i in range(self.__height):
+            print(" " * self.__x, end="")
             for j in range(self.__width):
                 print("#", end='')
-
             print()
+
+
+
 
     def __str__(self):
         return "[REACTANGLE] ({}) {}/{} - {} / {}".format(self.id, self.__x , self.__y, self.__width, self.__height)

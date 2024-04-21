@@ -3,7 +3,6 @@ from models.base import Base
 
 
 class Rectangle(Base):
-
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
         self.__width = width
@@ -74,12 +73,14 @@ class Rectangle(Base):
                 print("#", end='')
             print()
 
-
-
-
     def __str__(self):
         return "[REACTANGLE] ({}) {}/{} - {} / {}".format(self.id, self.__x , self.__y, self.__width, self.__height)
             
+    def update(self, *args):
+
+        if args is not None and len(args) is not 0:
+            list_attr = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                setattr(self, list_attr[i], args[i])
 
     
-        

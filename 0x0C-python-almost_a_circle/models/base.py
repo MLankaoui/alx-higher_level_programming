@@ -2,6 +2,7 @@
 """class base to create other instances"""
 
 
+
 class Base:
     """private class attribute"""
     __nb_object = 0

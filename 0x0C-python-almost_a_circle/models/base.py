@@ -1,35 +1,71 @@
 #!/usr/bin/python3
-"""class base to create other instances"""
+
+""" Base class """
+
 import json
+import csv
+import turtle
 
 
 class Base:
-    """private class attribute"""
-    __nb_object = 0
+    """
+    Base class for all other classes in the project.
+    """
 
-    """a class constructor that has two parameters"""
+    __nb_objects = 0
+
     def __init__(self, id=None):
-        """if id is not none we assign the true value
-        else if it is not none we increment the nb_object and assign
-        it to the id
+        """
+        Initializes a new instance of the Base class.
+
+        Args:
+            id (int): The id of the object. If None, a new id will be assigned.
+
+        Returns:
+            None
         """
         if id is not None:
             self.id = id
-
         else:
-            Base.__nb_object += 1
-            self.id = Base.__nb_object
+            self.__class__.__nb_objects += 1
+            self.id = self.__class__.__nb_objects
+
+    def __str__(self):
+        """
+        Returns a string representation of the object.
+
+        Returns:
+            str: The id of the object.
+        """
+        return str(self.id)
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """
+        Converts a list of dictionaries into a JSON string.
+
+        Args:
+            list_dictionaries (list): The list of dictionaries to convert.
+
+        Returns:
+            str: The JSON string representation of the list of dictionaries.
+        """
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
-
         else:
             return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """
+        Saves a list of objects to a file in JSON format.
+
+        Args:
+            list_objs (list): The list of objects to save.
+
+        Returns:
+            None
+        """
         if list_objs is None:
             list_objs = []
 
@@ -42,15 +78,32 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        if json_string is None:
-            return "[]"
+        """
+        Converts a JSON string into a list of dictionaries.
 
-        else:
-            return json.loads(json_string)
+        Args:
+            json_string (str): The JSON string to convert.
 
+        Returns:
+            list: The list of dictionaries.
+        """
+        if json_string is None or json_string == "":
+            json_string = "[]"
+
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """
+        Creates a new instance of the class
+        using a dictionary of attributes.
+
+        Args:
+            dictionary (dict): The dictionary of attributes.
+
+        Returns:
+            object: The new instance of the class.
+        """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 new = cls(1, 1)
@@ -59,9 +112,14 @@ class Base:
             new.update(**dictionary)
             return new
 
-
     @classmethod
     def load_from_file(cls):
+        """
+        Loads a list of objects from a file in JSON format.
+
+        Returns:
+            list: The list of objects.
+        """
         filename = "{}.json".format(cls.__name__)
 
         try:
@@ -70,3 +128,87 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Saves a list of objects to a CSV file.
+
+        Args:
+            list_objs (list): The list of objects to save.
+
+        Returns:
+            None
+        """
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                elif cls.__name__ == "Square":
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Loads a list of objects from a CSV file.
+
+        Returns:
+            list: The list of objects.
+        """
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, "r") as file:
+                reader = csv.reader(file)
+                list_objs = []
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        id, width, height, x, y = map(int, row)
+                        obj = cls(width, height, x, y, id)
+                    elif cls.__name__ == "Square":
+                        id, size, x, y = map(int, row)
+                        obj = cls(size, x, y, id)
+                    list_objs.append(obj)
+                return list_objs
+        except IOError:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Draws the list of rectangles and squares using the turtle module.
+
+        Args:
+            list_rectangles (list): The list of rectangles.
+            list_squares (list): The list of squares.
+
+        Returns:
+            None
+        """
+        my_turtle = turtle.Turtle()
+        my_turtle.screen.bgcolor("#1e1e1e")
+        my_turtle.pensize(3)
+        my_turtle.shape("turtle")
+
+        def draw_shape(shape):
+            my_turtle.showturtle()
+            my_turtle.up()
+            my_turtle.goto(shape.x, shape.y)
+            my_turtle.down()
+            for i in range(2):
+                my_turtle.forward(shape.width)
+                my_turtle.left(90)
+                my_turtle.forward(shape.height)
+                my_turtle.left(90)
+            my_turtle.hideturtle()
+
+        my_turtle.color("#cccccc")
+        for rect in list_rectangles:
+            draw_shape(rect)
+
+        my_turtle.color("#cccccc")
+        for sq in list_squares:
+            draw_shape(sq)
+
+        turtle.exitonclick()

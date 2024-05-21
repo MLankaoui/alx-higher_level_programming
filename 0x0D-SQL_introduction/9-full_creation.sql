@@ -3,7 +3,7 @@ CREATE TABLE second_table(
     id INT,
     name VARCHAR(50),
     score INT
-)
+);
 INSERT INTO second_table (id, name, score)
 VALUES 
     (1, "Jhone", 10),

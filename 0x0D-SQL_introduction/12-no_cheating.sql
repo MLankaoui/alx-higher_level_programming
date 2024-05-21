@@ -1,4 +1,6 @@
 -- script that updates the score of Bob to 10 in the table second_table.
+SELECT name, id FROM second_table;
+
 UPDATE second_table
 SET id = 10
 WHERE name = 'Bob';

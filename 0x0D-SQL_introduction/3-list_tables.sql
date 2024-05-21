@@ -1,2 +1,2 @@
 -- deleting a database.
-SELECT * FROM DATABASE mysql;
+SELECT * FROM DATABASE IF EXISTS mysql;

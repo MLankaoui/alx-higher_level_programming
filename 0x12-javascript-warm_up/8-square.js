@@ -11,7 +11,7 @@ if (isNaN(number)) {
   console.log('Missing size');
 }
 
-if (argc > 0 && !isNaN(number)) {
+if (argc == 1 && !isNaN(number)) {
   let idx = 0;
   for (; idx < number; idx++) {
     console.log('x'.repeat(number));

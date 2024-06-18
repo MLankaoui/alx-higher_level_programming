@@ -3,4 +3,12 @@ const process = require('process');
 
 let argv = process.argv;
 
-console.log(Math.floor(argv[2]));
+let toInt = Math.floor(argv[2])
+
+if (isNaN(toInt)) {
+    console.log('Not a number');
+}
+
+else {
+    console.log(toInt);
+}

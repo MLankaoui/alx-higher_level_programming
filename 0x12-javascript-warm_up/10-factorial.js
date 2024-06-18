@@ -5,14 +5,14 @@ const argv = process.argv;
 
 const argc = argv.length - 2;
 
-if (argc == 0) {
+if (argc === 0) {
   console.log(1);
 }
 
-if (argc == 1) {
-  number = parseInt(argv[2]);
+if (argc === 1) {
+  const number = parseInt(argv[2]);
   function factorial (number) {
-    if (number === NaN) {
+    if (isNaN(number)) {
       return 1;
     } else if (number === 1) {
       return 1;

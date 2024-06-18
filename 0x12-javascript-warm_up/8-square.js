@@ -20,5 +20,7 @@ if (argc > 0 && !isNaN(number)) {
         for (; j < number; j++) {
             console.log("x".repeat(number));  
         }
+
+        console.log("x")
     }
 }

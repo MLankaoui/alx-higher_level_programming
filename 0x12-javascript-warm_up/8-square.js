@@ -17,13 +17,3 @@ if (argc === 1 && !isNaN(number)) {
     console.log('x'.repeat(number));
   }
 }
-
-// let i, j;
-
-//     i = 0;
-//     j = 0;
-//     for (; i < number; i++) {
-//         for (; j < number; j++) {
-//             console.log("x".repeat(number));
-//         {
-//     }

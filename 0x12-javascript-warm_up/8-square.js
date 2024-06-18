@@ -1,22 +1,21 @@
 #!/usr/bin/node
 const process = require('process');
 
-let argv = process.argv;
+const argv = process.argv;
 
-let argc = argv.length - 2;
+const argc = argv.length - 2;
 
-let number = parseInt(argv[2]);
+const number = parseInt(argv[2]);
 
 if (isNaN(number)) {
-    console.log('Missing size');
+  console.log('Missing size');
 }
 
 if (argc > 0 && !isNaN(number)) {
-   
-   let idx = 0;
-   for (; idx < number; idx++) {
-    console.log("x".repeat(number));
-   } 
+  let idx = 0;
+  for (; idx < number; idx++) {
+    console.log('x'.repeat(number));
+  }
 }
 
 // let i, j;
@@ -25,6 +24,6 @@ if (argc > 0 && !isNaN(number)) {
 //     j = 0;
 //     for (; i < number; i++) {
 //         for (; j < number; j++) {
-//             console.log("x".repeat(number));  
+//             console.log("x".repeat(number));
 //         {
 //     }

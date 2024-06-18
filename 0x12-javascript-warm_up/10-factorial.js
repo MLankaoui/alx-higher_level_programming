@@ -12,7 +12,9 @@ if (argc == 0) {
 if (argc == 1) {
   number = parseInt(argv[2]);
   function factorial (number) {
-    if (number === NaN && number === 0 && number === 1) {
+    if (number === NaN) {
+      return 1;
+    } else if (number === 1) {
       return 1;
     } else {
       return number * factorial(number - 1);

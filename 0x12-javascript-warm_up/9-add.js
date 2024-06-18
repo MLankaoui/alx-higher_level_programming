@@ -1,21 +1,19 @@
 #!/usr/bin/node
 const process = require('process');
 
-let argv = process.argv;
+const argv = process.argv;
 
-let argc = argv.length - 2;
+const argc = argv.length - 2;
 
-if (argc != 2) {
-    console.log(NaN);
-}
+if (argc !== 2) {
+  console.log(NaN);
+} else {
+  const numberOne = parseInt(argv[2]);
+  const numberTwo = parseInt(argv[3]);
 
-else {
-    let number_one = parseInt(argv[2]);
-    let number_two = parseInt(argv[3]);
+  function add (a, b) {
+    return a + b;
+  }
 
-    function add(a, b) {
-        return a + b;
-    }
-
-    console.log(add(number_one, number_two));
+  console.log(add(numberOne, numberTwo));
 }

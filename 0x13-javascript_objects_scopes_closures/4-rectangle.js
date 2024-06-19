@@ -15,13 +15,6 @@ module.exports = class Rectangle {
       console.log('X'.repeat(this.width));
     }
   }
-  // this doubles the height and the width of the shape
-  double () {
-    let i;
-    for (i = 0; i < this.height * 2; i++) {
-      console.log('X'.repeat(this.width * 2));
-    }
-  }
   // this rotates the shape
   rotate () {
     let i;
@@ -29,4 +22,13 @@ module.exports = class Rectangle {
       console.log('X'.repeat(this.height * 2));
     }
   }
+  
+  // this doubles the height and the width of the shape
+  double () {
+    let i;
+    for (i = 0; i < this.height * 2; i++) {
+      console.log('X'.repeat(this.width * 2));
+    }
+  }
+  
 };

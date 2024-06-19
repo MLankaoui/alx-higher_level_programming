@@ -17,18 +17,15 @@ module.exports = class Rectangle {
   }
   // this rotates the shape
   rotate () {
-    let i;
-    for (i = 0; i < this.width * 2; i++) {
-      console.log('X'.repeat(this.height * 2));
-    }
+    let temp = this.width;
+    this.width = this.height;
+    this.height = temp;
   }
   
   // this doubles the height and the width of the shape
   double () {
-    let i;
-    for (i = 0; i < this.height * 2; i++) {
-      console.log('X'.repeat(this.width * 2));
-    }
+    this.height *= 2;
+    this.width *= 2;
   }
-  
+
 };

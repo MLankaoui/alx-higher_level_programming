@@ -3,15 +3,14 @@
 '''
     List all states mathch the arguments db
 '''
-
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(argv) != 4:
         exit(1)
 
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
+    username, password, database = argv[1], argv[2], argv[3]
 
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
                          passwd=password, db=database, charset="utf8")

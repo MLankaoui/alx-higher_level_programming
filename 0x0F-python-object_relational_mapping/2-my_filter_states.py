@@ -11,9 +11,9 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute('SELECT * FROM states WHERE name=%s', (statename,))
+    cursor.execute('SELECT * FROM states WHERE name=%s LIMIT 1', (statename,))
 
-    query_r = cursor.fetch()
+    query_r = cursor.fetchall()
 
     print(query_r)
 

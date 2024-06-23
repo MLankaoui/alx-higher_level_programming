@@ -1,4 +1,6 @@
+
 #!/usr/bin/python3
+
 '''
     script that takes in an argument and displays
     all values in the states table of
@@ -6,17 +8,19 @@
 '''
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    if len(argv) != 5:
+    if len(sys.argv) != 5:
         exit(1)
 
-    username, password, database, statename = argv[1], argv[2], argv[3], argv[4]
+    username, password = sys.argv[1], sys.argv[2]
+    database, keyword = sys.argv[3], sys.argv[4]
+
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
                          passwd=password, db=database, charset="utf8")
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = '{}'".format(statename))
+    cur.execute("SELECT * FROM states WHERE name = '{}'".format(keyword))
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)

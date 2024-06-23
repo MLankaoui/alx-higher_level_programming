@@ -7,16 +7,12 @@ if __name__ == "__main__":
         exit(1)
 
     username, password, database, statename = argv[1], argv[2], argv[3], argv[4]
-    db = MySQLdb.connect(host='localhost', port=3305, user=username, passwd=password, db=database, charset='utf8')
-
-    cursor = db.cursor()
-
-    cursor.execute("SELECT * FROM states WHERE name = '{}'".format(statename))
-
-    query_r = cursor.fetchall()
-
-    for element in query_r:
-        print(element)
-
-    cursor.close()
+    db = MySQLdb.connect(host="localhost", port=3306, user=username,
+                         passwd=password, db=database, charset="utf8")
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name = '{}'".format(statename))
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        print(row)
+    cur.close()
     db.close()

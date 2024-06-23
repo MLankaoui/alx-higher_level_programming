@@ -3,7 +3,7 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    if (len(argv) != 4):
+    if len(argv) != 4:
         exit(1)
 
     usernmane, password, database = argv[1], argv[2], argv[3]
@@ -13,12 +13,13 @@ if __name__ == "__main__":
 
         cursor = db.cursor()
 
-        cursor.execute('SELECT * FROM states WHERE name LIKE "N%" ORDER BY id ASC')
+        cursor.execute('SELECT * FROM states ORDER BY id ASC')
 
         query_r = cursor.fetchall()
 
         for element in query_r:
-            print(element)
+            if element[1].startswith("N"):
+                print(element)
 
         cursor.close()
         db.close()

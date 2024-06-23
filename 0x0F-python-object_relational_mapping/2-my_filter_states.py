@@ -15,7 +15,8 @@ if __name__ == "__main__":
 
     query_r = cursor.fetchall()
 
-    print(query_r)
+    for element in query_r:
+        print(query_r)
 
     cursor.close()
     db.close()

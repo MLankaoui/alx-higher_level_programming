@@ -11,12 +11,12 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute('SELECT * FROM states WHERE name=%s LIMIT 1', (statename,))
+    cursor.execute("SELECT * FROM states WHERE name = '{}'".format(statename))
 
     query_r = cursor.fetchall()
 
     for element in query_r:
-        print(query_r)
+        print(element)
 
     cursor.close()
     db.close()

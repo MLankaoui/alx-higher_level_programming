@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     cursor.execute('SELECT * FROM states WHERE name=%s', (statename,))
 
-    query_r = cursor.fetchall()
+    query_r = cursor.fetch()
 
     print(query_r)
 
